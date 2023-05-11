@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87a73bcd86a35387044b3888397a1ea6",
+    "content-hash": "f00010c347932bf6c9cc47564e441a15",
     "packages": [
         {
             "name": "brick/math",
@@ -6461,6 +6461,74 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "yieldstudio/nova-google-autocomplete",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/YieldStudio/nova-google-autocomplete.git",
+                "reference": "ee69205685dee9f2f4a20f223bc60d74784e4dbf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/YieldStudio/nova-google-autocomplete/zipball/ee69205685dee9f2f4a20f223bc60d74784e4dbf",
+                "reference": "ee69205685dee9f2f4a20f223bc60d74784e4dbf",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "^4.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YieldStudio\\NovaGoogleAutocomplete\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "YieldStudio\\NovaGoogleAutocomplete\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emiliano Tisato",
+                    "email": "emilianotisato@gmail.com",
+                    "homepage": "https://github.com/emilianotisato",
+                    "role": "Creator"
+                },
+                {
+                    "name": "James Hemery",
+                    "email": "james@yieldstudio.fr",
+                    "homepage": "https://yieldstudio.fr",
+                    "role": "Fork maintener"
+                }
+            ],
+            "description": "A Laravel Nova Google autocomplete field.",
+            "homepage": "https://github.com/YieldStudio/nova-google-autocomplete",
+            "keywords": [
+                "address",
+                "autocomplete",
+                "google",
+                "laravel",
+                "nova",
+                "yieldstudio"
+            ],
+            "support": {
+                "issues": "https://github.com/YieldStudio/nova-google-autocomplete/issues",
+                "source": "https://github.com/YieldStudio/nova-google-autocomplete/tree/1.1.0"
+            },
+            "time": "2022-08-01T11:50:03+00:00"
         }
     ],
     "packages-dev": [

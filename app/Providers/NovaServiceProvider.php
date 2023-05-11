@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Blade;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
@@ -16,6 +17,18 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot(): void
     {
         parent::boot();
+
+        $this->getFooter();
+    }
+
+    /**
+     * @return void
+     */
+    public function getFooter(): void
+    {
+        Nova::footer(function () {
+            return Blade::render('nova/footer');
+        });
     }
 
     /**
