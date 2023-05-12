@@ -39,6 +39,13 @@ class Person extends Resource
     ];
 
     /**
+     * Change the style of the index table.
+     */
+    public static $tableStyle = 'tight';
+    public static $showColumnBorders = false;
+    public static $clickAction = 'preview'; // default, select, preview, ignore
+    public static $perPageOptions = [50, 100, 150];
+    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
@@ -49,15 +56,18 @@ class Person extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name'),
-            Text::make('Lastname'),
-            Email::make('Email'),
-
+            Text::make('Name')->showOnPreview()->sortable(),
+            Text::make('Lastname')->showOnPreview()->sortable(),
+            Email::make('Email')->showOnPreview(),
+            Text::make('hc_id')->showOnPreview()
+                ->hideFromIndex()
+                ->help('ID en HikCentral'),
             Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
             // Autocomplete field
             GoogleAutocomplete::make('Address')
                 ->countries('MX')
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->showOnPreview(),
 
 
         ];
