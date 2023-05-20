@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\Email;
 use Laravel\Nova\Fields\ID;
@@ -10,6 +11,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use YieldStudio\NovaGoogleAutocomplete\AddressMetadata;
 use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
+use Laravel\Nova\Fields\Image;
 
 class Person extends Resource
 {
@@ -58,6 +60,7 @@ class Person extends Resource
 
             Text::make('Name')->showOnPreview()->sortable(),
             Text::make('Lastname')->showOnPreview()->sortable(),
+            Avatar::make('Photo', 'photo_path')->showOnPreview(),
             Email::make('Email')->showOnPreview(),
             Text::make('hc_id')->showOnPreview()
                 ->hideFromIndex()

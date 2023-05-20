@@ -4,17 +4,19 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Person;
 
-class PersonSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        //
-        Person::factory()->count(10)->create();
+        User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@inblay.mx',
+        ]);
     }
 }

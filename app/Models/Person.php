@@ -18,6 +18,7 @@ class Person extends Model
     protected $fillable = [
         'name',
         'lastname',
+        'photo_path',
         'email',
         'address',
         'phone',
