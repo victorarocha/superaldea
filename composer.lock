@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64dbbd104e495b7f401af04966e310e8",
+    "content-hash": "6024d02b65f9d04d67bfd7cc36dd1ae2",
     "packages": [
         {
             "name": "brick/math",
@@ -1645,17 +1645,17 @@
         },
         {
             "name": "laravel/nova",
-            "version": "4.24.3",
+            "version": "4.24.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:laravel/nova.git",
-                "reference": "9bcec63448f951cc30384ca8cda5548e78e936ea"
+                "reference": "124f76041caf86aacf0fe344a9f5782562c1cda7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-9bcec63448f951cc30384ca8cda5548e78e936ea-zip-9bc748.zip",
-                "reference": "9bcec63448f951cc30384ca8cda5548e78e936ea",
-                "shasum": "bb50d12b5d66a6ec6343ddf931289bab4c07931f"
+                "url": "https://nova.laravel.com/dist/laravel/nova/laravel-nova-124f76041caf86aacf0fe344a9f5782562c1cda7-zip-780fa8.zip",
+                "reference": "124f76041caf86aacf0fe344a9f5782562c1cda7",
+                "shasum": "966349c729140dcbaf3035534b974e08795d118f"
             },
             "require": {
                 "brick/money": "^0.5.0|^0.6.0|^0.7.0|^0.8.0",
@@ -1748,9 +1748,9 @@
                 "laravel"
             ],
             "support": {
-                "source": "https://github.com/laravel/nova/tree/v4.24.3"
+                "source": "https://github.com/laravel/nova/tree/v4.24.4"
             },
-            "time": "2023-05-16T14:21:21+00:00"
+            "time": "2023-05-19T13:20:09+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -2754,16 +2754,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.15.4",
+            "version": "v4.15.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "6bb5176bc4af8bcb7d926f88718db9b96a2d4290"
+                "reference": "11e2663a5bc9db5d714eedb4277ee300403b4a9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/6bb5176bc4af8bcb7d926f88718db9b96a2d4290",
-                "reference": "6bb5176bc4af8bcb7d926f88718db9b96a2d4290",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/11e2663a5bc9db5d714eedb4277ee300403b4a9e",
+                "reference": "11e2663a5bc9db5d714eedb4277ee300403b4a9e",
                 "shasum": ""
             },
             "require": {
@@ -2804,9 +2804,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.4"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.5"
             },
-            "time": "2023-03-05T19:49:14+00:00"
+            "time": "2023-05-19T20:20:00+00:00"
         },
         {
             "name": "nunomaduro/termwind",
@@ -9544,7 +9544,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.1"
+        "php": "^8.2"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
