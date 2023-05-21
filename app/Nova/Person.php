@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Ctessier\NovaAdvancedImageField\AdvancedImage;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Code;
@@ -47,11 +48,13 @@ class Person extends Resource
     public static $showColumnBorders = false;
     public static $clickAction = 'preview'; // default, select, preview, ignore
     public static $perPageOptions = [50, 100, 150];
+
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
+     * @throws \Exception
      */
     public function fields(NovaRequest $request)
     {
@@ -60,7 +63,8 @@ class Person extends Resource
 
             Text::make('Name')->showOnPreview()->sortable(),
             Text::make('Lastname')->showOnPreview()->sortable(),
-            Avatar::make('Photo', 'photo_path')->showOnPreview(),
+            //Avatar::make('Photo', 'photo_path')->showOnPreview(),
+            AdvancedImage::make('Photo', 'photo_path')->croppable(1)->quality(100)->rounded(),
             Email::make('Email')->showOnPreview(),
             Text::make('hc_id')->showOnPreview()
                 ->hideFromIndex()
