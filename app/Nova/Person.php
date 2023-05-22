@@ -14,6 +14,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use YieldStudio\NovaGoogleAutocomplete\AddressMetadata;
 use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
 use Laravel\Nova\Fields\Image;
+use ZiffMedia\NovaSelectPlus\SelectPlus;
 
 /**
  * @property mixed $name
@@ -75,7 +76,8 @@ class Person extends Resource
                 ->countries('MX')
                 ->hideFromIndex()
                 ->showOnPreview(),
-            BelongsToMany::make('Organizations'),
+            //BelongsToMany::make('Organizations'),
+            SelectPlus::make('Organizations'),
 
 
         ];

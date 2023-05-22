@@ -38,7 +38,7 @@ class Person extends Model
     public function organizations()
     {
 
-        return $this->belongsToMany(Organization::class);
+        return $this->belongsToMany(Organization::class)->withTimestamps();
     }
 
 }

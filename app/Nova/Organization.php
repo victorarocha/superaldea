@@ -45,7 +45,7 @@ class Organization extends Resource
             Text::make('Name'),
             Text::make('Phone'),
             Text::make('hc_id'),
-            BelongsToMany::make('People'),
+            BelongsToMany::make('People')->searchable(),
             Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
             GoogleAutocomplete::make('Address'),
         ];
