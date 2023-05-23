@@ -4,25 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Area extends Model
+class Home extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'hc_id',
-
+        'address'
     ];
 
-    public function community()
+    public function homeType()
     {
-        return $this->belongsTo(Community::class);
-
+        return $this->belongsTo(HomeType::class);
     }
 
-    public function gates()
-    {
-        return $this->hasMany(Gate::class);
-    }
 }

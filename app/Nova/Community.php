@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
@@ -13,14 +14,14 @@ use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
 /**
  * @property mixed $name
  */
-class Organization extends Resource
+class Community extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Organization>
+     * @var class-string<\App\Models\Community>
      */
-    public static $model = \App\Models\Organization::class;
+    public static $model = \App\Models\Community::class;
 
 
     /**
@@ -30,7 +31,19 @@ class Organization extends Resource
      */
     public static $search = [
         'id',
+        'name'
     ];
+
+    /**
+     * Add query to the query result of Nova.
+     * @param NovaRequest $request
+     * @param $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->withCount('areas'); // add number of areas to the query
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -49,6 +62,7 @@ class Organization extends Resource
             Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
             GoogleAutocomplete::make('Address'),
             HasMany::make('Areas'),
+            Number::make('# of Areas','areas_count')->onlyOnIndex()->textAlign('center'),
         ];
     }
 

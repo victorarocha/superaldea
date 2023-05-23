@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('people', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(30320);
             $table->string('name');
             $table->string('lastname');
             $table->string('photo_path')->nullable();
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('hc_id')->unique()->nullable();
+            $table->date('birthdate')->nullable();
             $table->timestamps();
         });
     }

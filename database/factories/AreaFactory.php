@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Nova\Organization;
+use App\Nova\Community;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Collection;
 
@@ -20,7 +20,7 @@ class AreaFactory extends Factory
     {
         return [
             // get a random organization for the area record.
-            'organization_id' => fake()->randomElement(\App\Models\Organization::pluck('id')),
+            'community_id' => fake()->randomElement(\App\Models\Community::pluck('id')),
             'name' => fake()->word(),
             'hc_id' => fake()->unique()->ean13(),
 

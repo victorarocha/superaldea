@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organization_person', function (Blueprint $table) {
+        Schema::create('community_person', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('organization_id')->references('id')->on('organizations')->cascadeOnDelete();
+            $table->foreignId('community_id')->references('id')->on('communities')->cascadeOnDelete();
             $table->foreignId('person_id')->references('id')->on('people')->cascadeOnDelete();
 
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organization_person');
+        Schema::dropIfExists('community_person');
     }
 };

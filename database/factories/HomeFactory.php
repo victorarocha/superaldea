@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Organization>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Home>
  */
-class OrganizationFactory extends Factory
+class HomeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +18,9 @@ class OrganizationFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company(),
-            'phone' => fake()->phoneNumber(),
-            'hc_id' => fake()->unique()->ean13(),
+            'name' => fake()->word(),
             'address' => fake()->address(),
+            'home_type_id' => fake()->randomElement(\App\Models\HomeType::pluck('id'))
         ];
     }
 }

@@ -22,6 +22,7 @@ class Person extends Model
         'email',
         'address',
         'phone',
+        'birthdate',
         'hc_id',
     ];
 
@@ -32,13 +33,13 @@ class Person extends Model
      * @var array<string, string>
      */
     protected $casts = [
-
+        'birthdate' => 'date'
     ];
 
-    public function organizations()
+    public function communities()
     {
 
-        return $this->belongsToMany(Organization::class)->withTimestamps();
+        return $this->belongsToMany(Community::class)->withTimestamps();
     }
 
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreOrganizationRequest;
-use App\Http\Requests\UpdateOrganizationRequest;
-use App\Models\Community;
+use App\Http\Requests\StoreHomeTypeRequest;
+use App\Http\Requests\UpdateHomeTypeRequest;
+use App\Models\HomeType;
 
-class OrganizationController extends Controller
+class HomeTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class OrganizationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrganizationRequest $request)
+    public function store(StoreHomeTypeRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class OrganizationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Community $organization)
+    public function show(HomeType $homeType)
     {
         //
     }
@@ -43,7 +43,7 @@ class OrganizationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Community $organization)
+    public function edit(HomeType $homeType)
     {
         //
     }
@@ -51,7 +51,7 @@ class OrganizationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOrganizationRequest $request, Community $organization)
+    public function update(UpdateHomeTypeRequest $request, HomeType $homeType)
     {
         //
     }
@@ -59,7 +59,7 @@ class OrganizationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Community $organization)
+    public function destroy(HomeType $homeType)
     {
         //
     }

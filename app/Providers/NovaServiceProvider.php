@@ -19,6 +19,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         parent::boot();
 
         $this->getFooter();
+
+        Nova::withBreadcrumbs();
     }
 
     /**

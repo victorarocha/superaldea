@@ -20,11 +20,12 @@ class PersonFactory extends Factory
             // Define fake data factory for testing.
             'name' => fake()->firstName(),
             'lastname' => fake()->lastName(),
-            'photo_path' => fake()->image('storage/app/public',300,300,'cats', false),
+            'photo_path' => fake()->image('storage/app/public',300,300,'', false),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => fake()->dateTimeThisMonth(),
             'address' => fake()->address(),
             'phone' => fake()->phoneNumber(),
+            'birthdate' => fake()->date(),
             'hc_id' => fake()->unique()->ean13(),
 
         ];

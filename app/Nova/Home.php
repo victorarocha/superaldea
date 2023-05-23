@@ -2,23 +2,21 @@
 
 namespace App\Nova;
 
-
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
 
-class Area extends Resource
+class Home extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Area>
+     * @var class-string<\App\Models\Home>
      */
-    public static $model = \App\Models\Area::class;
+    public static $model = \App\Models\Home::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -38,17 +36,6 @@ class Area extends Resource
     ];
 
     /**
-     * Add query to the query result in Nova.
-     * @param NovaRequest $request
-     * @param $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public static function indexQuery(NovaRequest $request, $query)
-    {
-        return $query->withCount('gates'); // add the number of gates to the query
-    }
-
-    /**
      * Get the fields displayed by the resource.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
@@ -58,11 +45,10 @@ class Area extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name'),
-            Text::make('hc_id'),
-            BelongsTo::make('Community'),
-            HasMany::make('Gates'),
-            Number::make('# of Gates', 'gates_count')->onlyOnIndex()->textAlign('center'),
+            Text::make('Name')->required(),
+            Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
+            GoogleAutocomplete::make('Address'),
+            BelongsTo::make('Home Type')
         ];
     }
 

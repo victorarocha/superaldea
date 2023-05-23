@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Code;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Email;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -67,6 +68,7 @@ class Person extends Resource
             //Avatar::make('Photo', 'photo_path')->showOnPreview(),
             AdvancedImage::make('Photo', 'photo_path')->croppable(1)->quality(100)->rounded(),
             Email::make('Email')->showOnPreview(),
+            Date::make('Birthdate'),
             Text::make('hc_id')->showOnPreview()
                 ->hideFromIndex()
                 ->help('ID en HikCentral'),
@@ -76,8 +78,8 @@ class Person extends Resource
                 ->countries('MX')
                 ->hideFromIndex()
                 ->showOnPreview(),
-            //BelongsToMany::make('Organizations'),
-            SelectPlus::make('Organizations'),
+
+            SelectPlus::make('Communities')
 
 
         ];
