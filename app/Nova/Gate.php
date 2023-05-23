@@ -3,25 +3,26 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
 
-/**
- * @property mixed $name
- */
-class Organization extends Resource
+class Gate extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Organization>
+     * @var class-string<\App\Models\Gate>
      */
-    public static $model = \App\Models\Organization::class;
+    public static $model = \App\Models\Gate::class;
 
+    /**
+     * The single value that should be used to represent the resource when being displayed.
+     *
+     * @var string
+     */
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -42,13 +43,9 @@ class Organization extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name'),
-            Text::make('Phone'),
-            Text::make('hc_id'),
-            BelongsToMany::make('People')->searchable(),
-            Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
-            GoogleAutocomplete::make('Address'),
-            HasMany::make('Areas'),
+            Text::make('name')->required(),
+            Text::make('hc_id')->required(),
+            BelongsTo::make('Area'),
         ];
     }
 
@@ -94,10 +91,5 @@ class Organization extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
-    }
-
-    public function title()
-    {
-        return $this->name;
     }
 }

@@ -25,4 +25,9 @@ class Organization extends Model
     {
         return $this->belongsToMany(Person::class)->withTimestamps();
     }
+
+    public function areas()
+    {
+        return $this->hasMany(Area::class);
+    }
 }

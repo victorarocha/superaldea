@@ -2,26 +2,30 @@
 
 namespace App\Nova;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
 
-/**
- * @property mixed $name
- */
-class Organization extends Resource
+class Area extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Organization>
+     * @var class-string<\App\Models\Area>
      */
-    public static $model = \App\Models\Organization::class;
+    public static $model = \App\Models\Area::class;
 
+    /**
+     * The single value that should be used to represent the resource when being displayed.
+     *
+     * @var string
+     */
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -30,7 +34,19 @@ class Organization extends Resource
      */
     public static $search = [
         'id',
+        'name'
     ];
+
+    /**
+     * Add query to the query result in Nova.
+     * @param NovaRequest $request
+     * @param $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->withCount('gates'); // add the number of gates to the query
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -43,12 +59,10 @@ class Organization extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name'),
-            Text::make('Phone'),
             Text::make('hc_id'),
-            BelongsToMany::make('People')->searchable(),
-            Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
-            GoogleAutocomplete::make('Address'),
-            HasMany::make('Areas'),
+            BelongsTo::make('Organization'),
+            HasMany::make('Gates'),
+            Number::make('# of Gates', 'gates_count')->onlyOnIndex(),
         ];
     }
 
@@ -94,10 +108,5 @@ class Organization extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
-    }
-
-    public function title()
-    {
-        return $this->name;
     }
 }
