@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasMany;
@@ -23,6 +24,10 @@ class Community extends Resource
      */
     public static $model = \App\Models\Community::class;
 
+    public static $tableStyle = 'tight';
+    public static $showColumnBorders = false;
+    public static $clickAction = 'default'; // default, select, preview, ignore
+    public static $perPageOptions = [50, 100, 150];
 
     /**
      * The columns that should be searched.
@@ -42,7 +47,7 @@ class Community extends Resource
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        return $query->withCount('areas'); // add number of areas to the query
+        return $query->withCount('areas')->withCount('people'); // add number of areas to the query
     }
 
     /**
@@ -56,13 +61,15 @@ class Community extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name'),
-            Text::make('Phone'),
+            Text::make('Phone')->hideFromIndex(),
             Text::make('hc_id'),
             BelongsToMany::make('People')->searchable(),
             Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
-            GoogleAutocomplete::make('Address'),
+            GoogleAutocomplete::make('Address')->hideFromIndex(),
             HasMany::make('Areas'),
             Number::make('# of Areas','areas_count')->onlyOnIndex()->textAlign('center'),
+            Number::make('# of People','people_count')->onlyOnIndex()->textAlign('center'),
+
         ];
     }
 

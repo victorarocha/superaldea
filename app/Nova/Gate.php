@@ -22,7 +22,12 @@ class Gate extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'name';
+
+    public static $tableStyle = 'tight';
+    public static $showColumnBorders = false;
+    public static $clickAction = 'default'; // default, select, preview, ignore
+    public static $perPageOptions = [50, 100, 150];
 
     /**
      * The columns that should be searched.
@@ -31,6 +36,7 @@ class Gate extends Resource
      */
     public static $search = [
         'id',
+        'name'
     ];
 
     /**
