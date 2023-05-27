@@ -47,7 +47,7 @@ class Community extends Resource
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        return $query->withCount('areas')->withCount('people'); // add number of areas to the query
+        return $query->withCount('areas')->withCount('people')->withCount('homes'); // add number of areas to the query
     }
 
     /**
@@ -67,8 +67,10 @@ class Community extends Resource
             Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
             GoogleAutocomplete::make('Address')->hideFromIndex(),
             HasMany::make('Areas'),
+            HasMany::make('Homes'),
             Number::make('# of Areas','areas_count')->onlyOnIndex()->textAlign('center'),
             Number::make('# of People','people_count')->onlyOnIndex()->textAlign('center'),
+            Number::make('# of Homes','homes_count')->onlyOnIndex()->textAlign('center'),
 
         ];
     }

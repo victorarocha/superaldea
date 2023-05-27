@@ -25,7 +25,7 @@ class PersonFactory extends Factory
             'email_verified_at' => fake()->dateTimeThisMonth(),
             'address' => fake()->address(),
             'phone' => fake()->phoneNumber(),
-            'birthdate' => fake()->date(),
+            'birthdate' => fake()->date('Y-m-d', '2000-01-01'),
             'hc_id' => fake()->unique()->ean13(),
 
         ];

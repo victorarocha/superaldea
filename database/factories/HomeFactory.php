@@ -18,9 +18,10 @@ class HomeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->word(),
+            'name' => fake()->sentence(3),
             'address' => fake()->address(),
-            'home_type_id' => fake()->randomElement(\App\Models\HomeType::pluck('id'))
+            'home_type_id' => fake()->randomElement(\App\Models\HomeType::pluck('id')),
+            'community_id' => fake()->randomElement(\App\Models\Community::pluck('id'))
         ];
     }
 }

@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('homes', function (Blueprint $table) {
+        Schema::create('home_person', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('address');
-            $table->foreignId('home_type_id')->constrained();
-            $table->foreignId('community_id')->constrained();
+            $table->foreignId('home_id')->references('id')->on('homes')->cascadeOnDelete();
+            $table->foreignId('person_id')->references('id')->on('people')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('homes');
+        Schema::dropIfExists('home_person');
     }
 };

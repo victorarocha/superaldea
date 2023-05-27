@@ -30,4 +30,9 @@ class Community extends Model
     {
         return $this->hasMany(Area::class);
     }
+
+    public function homes()
+    {
+        return $this->hasMany(Home::class);
+    }
 }

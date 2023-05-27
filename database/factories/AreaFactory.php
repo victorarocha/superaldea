@@ -21,7 +21,7 @@ class AreaFactory extends Factory
         return [
             // get a random organization for the area record.
             'community_id' => fake()->randomElement(\App\Models\Community::pluck('id')),
-            'name' => fake()->word(),
+            'name' => fake()->sentence(2),
             'hc_id' => fake()->unique()->ean13(),
 
         ];

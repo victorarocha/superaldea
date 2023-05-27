@@ -20,4 +20,13 @@ class Home extends Model
         return $this->belongsTo(HomeType::class);
     }
 
+    public function people()
+    {
+        return $this->belongsToMany(Person::class)->withTimestamps();
+    }
+
+    public function community()
+    {
+        return $this->belongsTo(Community::class);
+    }
 }

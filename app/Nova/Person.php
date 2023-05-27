@@ -79,7 +79,8 @@ class Person extends Resource
                 ->hideFromIndex()
                 ->showOnPreview(),
 
-            SelectPlus::make('Communities')
+            SelectPlus::make('Communities'),
+            SelectPlus::make('Homes'),
 
 
         ];
@@ -132,5 +133,6 @@ class Person extends Resource
     public function title()
     {
         return $this->name." ".$this->lastname;
+
     }
 }

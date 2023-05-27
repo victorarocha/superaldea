@@ -25,11 +25,13 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(CommunitySeeder::class);
+        $this->call(HomeTypeSeeder::class);
+        $this->call(HomeSeeder::class);
+
         $this->call(PersonSeeder::class);
 
         $this->call(AreaSeeder::class);
         $this->call(GateSeeder::class);
-        $this->call(HomeTypeSeeder::class);
-        $this->call(HomeSeeder::class);
+
     }
 }

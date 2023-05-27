@@ -4,10 +4,12 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
+use ZiffMedia\NovaSelectPlus\SelectPlus;
 
 class Home extends Resource
 {
@@ -52,8 +54,10 @@ class Home extends Resource
             ID::make()->sortable(),
             Text::make('Name')->required(),
             Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
-            GoogleAutocomplete::make('Address'),
-            BelongsTo::make('Home Type')
+            GoogleAutocomplete::make('Address')->hideFromIndex(),
+            BelongsTo::make('Home Type'),
+            BelongsTo::make('Community'),
+            SelectPlus::make('People')->label(fn($person) => $person->name." ".$person->lastname),
         ];
     }
 

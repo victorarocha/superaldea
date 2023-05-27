@@ -42,4 +42,9 @@ class Person extends Model
         return $this->belongsToMany(Community::class)->withTimestamps();
     }
 
+    public function homes()
+    {
+        return $this->belongsToMany(Home::class)->withTimestamps();
+    }
+
 }
