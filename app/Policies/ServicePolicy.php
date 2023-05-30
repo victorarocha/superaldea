@@ -3,10 +3,10 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\WorkerType;
+use App\Models\Service;
 use Illuminate\Auth\Access\Response;
 
-class WorkerTypePolicy
+class ServicePolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class WorkerTypePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, WorkerType $workerType): bool
+    public function view(User $user, Service $service): bool
     {
         return true;
 
@@ -37,7 +37,7 @@ class WorkerTypePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, WorkerType $workerType): bool
+    public function update(User $user, Service $service): bool
     {
         return true;
 
@@ -46,7 +46,7 @@ class WorkerTypePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, WorkerType $workerType): bool
+    public function delete(User $user, Service $service): bool
     {
         return true;
 
@@ -55,7 +55,7 @@ class WorkerTypePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, WorkerType $workerType): bool
+    public function restore(User $user, Service $service): bool
     {
         return true;
 
@@ -64,7 +64,7 @@ class WorkerTypePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, WorkerType $workerType): bool
+    public function forceDelete(User $user, Service $service): bool
     {
         return true;
 

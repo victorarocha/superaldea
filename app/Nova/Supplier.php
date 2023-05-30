@@ -5,17 +5,17 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use ZiffMedia\NovaSelectPlus\SelectPlus;
 
-class WorkerType extends Resource
+class Supplier extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\WorkerType>
+     * @var class-string<\App\Models\Supplier>
      */
-    public static $model = \App\Models\WorkerType::class;
+    public static $model = \App\Models\Supplier::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -31,8 +31,7 @@ class WorkerType extends Resource
      */
     public static $search = [
         'id',
-        'name',
-        'description'
+        'name'
     ];
 
     /**
@@ -46,7 +45,7 @@ class WorkerType extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name'),
-            Textarea::make('Description')
+            SelectPlus::make('Services')
         ];
     }
 

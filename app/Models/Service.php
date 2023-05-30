@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class WorkerType extends Model
+class Service extends Model
 {
     use HasFactory;
 
@@ -13,4 +13,9 @@ class WorkerType extends Model
         'name',
         'description'
     ];
+
+    public function suppliers()
+    {
+        return $this->belongsToMany(Supplier::class)->withTimestamps();
+    }
 }

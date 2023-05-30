@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreWorkerTypeRequest;
-use App\Http\Requests\UpdateWorkerTypeRequest;
-use App\Models\Service;
+use App\Http\Requests\StoreWorkerRequest;
+use App\Http\Requests\UpdateWorkerRequest;
+use App\Models\Supplier;
 
-class WorkerTypeController extends Controller
+class WorkerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class WorkerTypeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreWorkerTypeRequest $request)
+    public function store(StoreWorkerRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class WorkerTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Service $workerType)
+    public function show(Supplier $worker)
     {
         //
     }
@@ -43,7 +43,7 @@ class WorkerTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $workerType)
+    public function edit(Supplier $worker)
     {
         //
     }
@@ -51,7 +51,7 @@ class WorkerTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateWorkerTypeRequest $request, Service $workerType)
+    public function update(UpdateWorkerRequest $request, Supplier $worker)
     {
         //
     }
@@ -59,7 +59,7 @@ class WorkerTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $workerType)
+    public function destroy(Supplier $worker)
     {
         //
     }
