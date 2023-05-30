@@ -47,4 +47,9 @@ class Person extends Model
         return $this->belongsToMany(Home::class)->withTimestamps();
     }
 
+    public function suppliers()
+    {
+        return $this->belongsToMany(Supplier::class)->withTimestamps();
+    }
+
 }

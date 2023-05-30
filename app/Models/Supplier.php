@@ -19,4 +19,9 @@ class Supplier extends Model
     {
         return $this->belongsToMany(Service::class)->withTimestamps();
     }
+
+    public function people()
+    {
+        return $this->belongsToMany(Person::class)->withTimestamps();
+    }
 }
