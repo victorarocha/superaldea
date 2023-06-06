@@ -15,6 +15,6 @@ class HomeType extends Model
 
     public function homes()
     {
-        return $this->belongsToMany(Home::class);
+        return $this->hasMany(Home::class);
     }
 }
