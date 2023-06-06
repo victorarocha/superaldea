@@ -24,6 +24,11 @@ class Service extends Resource
      */
     public static $title = 'name';
 
+    /*
+    * Group for the menu.
+    */
+    public static $group = 'Suppliers';
+
     /**
      * The columns that should be searched.
      *

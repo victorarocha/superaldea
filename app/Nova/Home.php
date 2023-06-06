@@ -25,6 +25,11 @@ class Home extends Resource
      */
     public static $title = 'name';
 
+    /*
+    * Group for the menu.
+    */
+    public static $group = 'Communities';
+
     public static $tableStyle = 'tight';
     public static $showColumnBorders = false;
     public static $clickAction = 'default'; // default, select, preview, ignore
@@ -50,12 +55,18 @@ class Home extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Name')->required(),
-            Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
-            GoogleAutocomplete::make('Address')->hideFromIndex(),
+            Text::make('Name')
+                ->required(),
+            Text::make('Address')
+                ->readonly()
+                ->onlyOnForms()
+                ->hideWhenCreating(),
+            GoogleAutocomplete::make('Address')
+                ->hideFromIndex(),
             BelongsTo::make('Home Type'),
             BelongsTo::make('Community'),
-            SelectPlus::make('People')->label(fn($person) => $person->name." ".$person->lastname),
+            SelectPlus::make('People')
+                ->label(fn($person) => $person->name." ".$person->lastname),
         ];
     }
 

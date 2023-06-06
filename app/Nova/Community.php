@@ -29,6 +29,13 @@ class Community extends Resource
     public static $clickAction = 'default'; // default, select, preview, ignore
     public static $perPageOptions = [50, 100, 150];
 
+
+    /**
+    * Group for the menu.
+    **/
+    public static $group = 'Communities';
+
+
     /**
      * The columns that should be searched.
      *

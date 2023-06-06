@@ -3,18 +3,13 @@
 namespace App\Nova;
 
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Avatar;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Code;
+
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Email;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use YieldStudio\NovaGoogleAutocomplete\AddressMetadata;
 use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
-use Laravel\Nova\Fields\Image;
 use ZiffMedia\NovaSelectPlus\SelectPlus;
 
 /**
@@ -29,6 +24,11 @@ class Person extends Resource
      * @var class-string<\App\Models\Person>
      */
     public static $model = \App\Models\Person::class;
+
+    /*
+    * Group for the menu.
+    */
+    public static $group = 'Residents';
 
 
     /**

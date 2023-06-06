@@ -24,6 +24,11 @@ class Gate extends Resource
      */
     public static $title = 'name';
 
+    /*
+    * Group for the menu.
+    */
+    public static $group = 'Areas';
+
     public static $tableStyle = 'tight';
     public static $showColumnBorders = false;
     public static $clickAction = 'default'; // default, select, preview, ignore
