@@ -63,22 +63,32 @@ class Person extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make('Name')->showOnPreview()->sortable(),
-            Text::make('Lastname')->showOnPreview()->sortable(),
+            Text::make('Name')
+                ->showOnPreview()
+                ->sortable(),
+            Text::make('Lastname')
+                ->showOnPreview()
+                ->sortable(),
             //Avatar::make('Photo', 'photo_path')->showOnPreview(),
-            AdvancedImage::make('Photo', 'photo_path')->croppable(1)->quality(100)->rounded(),
-            Email::make('Email')->showOnPreview(),
+            AdvancedImage::make('Photo', 'photo_path')
+                ->croppable(1)
+                ->quality(100)
+                ->rounded(),
+            Email::make('Email')
+                ->showOnPreview(),
             Date::make('Birthdate'),
-            Text::make('hc_id')->showOnPreview()
+            Text::make('hc_id')
+                ->showOnPreview()
                 ->hideFromIndex()
                 ->help('ID en HikCentral'),
-            Text::make('Address')->readonly()->onlyOnForms()->hideWhenCreating(),
-            // Autocomplete field
+            Text::make('Address')
+                ->readonly()
+                ->onlyOnForms()
+                ->hideWhenCreating(),
             GoogleAutocomplete::make('Address')
                 ->countries('MX')
                 ->hideFromIndex()
                 ->showOnPreview(),
-
             SelectPlus::make('Communities'),
             SelectPlus::make('Homes'),
 

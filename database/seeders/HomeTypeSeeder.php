@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Home;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +14,9 @@ class HomeTypeSeeder extends Seeder
     {
 
         $collection = collect([
-            'House',
-            'Apartment'
+            'Casa',
+            'Departamento',
+            'Oficina'
         ]);
 
         $collection->each(

@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -51,7 +52,8 @@ class Service extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name'),
-            Textarea::make('Description')
+            Textarea::make('Description'),
+            BelongsToMany::make('Suppliers')
         ];
     }
 

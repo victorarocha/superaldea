@@ -51,7 +51,7 @@ class Supplier extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name'),
-            SelectPlus::make('Services'),
+            SelectPlus::make('Services')->usingDetailLabel(fn ($models) => $models->pluck('name')),
             BelongsToMany::make('People')
         ];
     }
