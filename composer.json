@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "sereny/nova-permissions": "^1.3",
+        "stepanenko3/nova-cards": "^1.9",
         "xvladqt/faker-lorem-flickr": "^1.0",
         "yieldstudio/nova-google-autocomplete": "^1.1",
         "ziffmedia/nova-select-plus": "^2.0"
