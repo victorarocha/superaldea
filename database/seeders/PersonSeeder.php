@@ -20,7 +20,7 @@ class PersonSeeder extends Seeder
         File::delete(File::glob(storage_path('app/public/*.png')));
         File::delete(File::glob(storage_path('app/public/*.jpg')));
 
-        Person::factory()->count(180)->create();
+        Person::factory()->count(30)->create();
 
         // get all the people and count them
         $people = Person::all();

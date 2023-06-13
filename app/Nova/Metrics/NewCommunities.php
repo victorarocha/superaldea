@@ -9,6 +9,10 @@ use Laravel\Nova\Nova;
 
 class NewCommunities extends Value
 {
+
+
+    public $name = 'Nuevas Comunidades';
+
     /**
      * Calculate the value of the metric.
      *

@@ -13,6 +13,6 @@ class DoorSeeder extends Seeder
      */
     public function run(): void
     {
-        Door::factory()->count(40)->create();
+        Door::factory()->count(5)->create();
     }
 }

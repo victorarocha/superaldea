@@ -9,6 +9,9 @@ use Laravel\Nova\Nova;
 
 class NewUsers extends Value
 {
+
+    public $name = "Nuevos Partners";
+
     /**
      * Calculate the value of the metric.
      *

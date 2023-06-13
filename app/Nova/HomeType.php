@@ -25,7 +25,7 @@ class HomeType extends Resource
     /*
     * Group for the menu.
     */
-    public static $group = 'Communities';
+    public static $group = 'Homes';
 
     public static $tableStyle = 'tight';
     public static $showColumnBorders = false;

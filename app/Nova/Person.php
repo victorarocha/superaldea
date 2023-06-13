@@ -4,9 +4,11 @@ namespace App\Nova;
 
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Email;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
@@ -69,7 +71,6 @@ class Person extends Resource
             Text::make('Lastname')
                 ->showOnPreview()
                 ->sortable(),
-            //Avatar::make('Photo', 'photo_path')->showOnPreview(),
             AdvancedImage::make('Photo', 'photo_path')
                 ->croppable(1)
                 ->quality(100)

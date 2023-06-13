@@ -27,7 +27,7 @@ class Gate extends Resource
     /*
     * Group for the menu.
     */
-    public static $group = 'Areas';
+    public static $group = 'Communities';
 
     public static $tableStyle = 'tight';
     public static $showColumnBorders = false;

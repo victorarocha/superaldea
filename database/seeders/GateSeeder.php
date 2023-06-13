@@ -13,6 +13,6 @@ class GateSeeder extends Seeder
      */
     public function run(): void
     {
-        Gate::factory()->count(100)->create();
+        Gate::factory()->count(6)->create();
     }
 }

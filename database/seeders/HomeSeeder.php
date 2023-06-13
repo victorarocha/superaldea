@@ -13,6 +13,6 @@ class HomeSeeder extends Seeder
      */
     public function run(): void
     {
-        Home::factory()->count(100)->create();
+        Home::factory()->count(5)->create();
     }
 }
