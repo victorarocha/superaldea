@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('gates', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(1000);
             $table->string('name');
             $table->string('hc_id');
             $table->foreignId('area_id')->constrained();

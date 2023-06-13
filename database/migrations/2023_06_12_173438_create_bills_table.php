@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bills', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(1000);
             $table->foreignId('contract_id')->constrained();
             $table->date('due_date');
             $table->string('description');

@@ -16,6 +16,10 @@ class Bill extends Model
         'payment_status'
     ];
 
+    protected $casts = [
+        'due_date' => 'date'
+    ];
+
     public function contract() {
         return $this->belongsTo(Contract::class);
     }

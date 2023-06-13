@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('homes', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(1000);
             $table->string('name');
             $table->text('address');
             $table->foreignId('home_type_id')->constrained();

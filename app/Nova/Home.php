@@ -30,7 +30,6 @@ class Home extends Resource
     */
     public static $group = 'Homes';
 
-    public static $tableStyle = 'tight';
     public static $showColumnBorders = false;
     public static $clickAction = 'default'; // default, select, preview, ignore
     public static $perPageOptions = [50, 100, 150];

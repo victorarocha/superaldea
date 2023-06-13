@@ -2,9 +2,11 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use ZiffMedia\NovaSelectPlus\SelectPlus;
 
 class BankAccount extends Resource
 {
@@ -21,6 +23,7 @@ class BankAccount extends Resource
      * @var string
      */
     public static $title = 'id';
+    public static $group = 'Billing';
 
     /**
      * The columns that should be searched.
@@ -42,7 +45,12 @@ class BankAccount extends Resource
     {
         return [
             ID::make()->sortable(),
-
+            BelongsTo::make('Person')->searchable(),
+            BelongsTo::make('Bank')->searchable(),
+            //SelectPlus::make('Bank')->
+            Text::make('Account Number')->required(),
+            Text::make('Name')->required(),
+            Text::make('Reference')
         ];
     }
 

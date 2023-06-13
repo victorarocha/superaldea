@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('photo_path')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->dateTime('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password')->nullable();
             $table->text('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('hc_id')->unique()->nullable();

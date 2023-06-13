@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contracts', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(1000);
             $table->string('title');
             $table->foreignId('contract_type_id')->constrained();
-            $table->string('file_path');
+            $table->string('file_path')->nullable();
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

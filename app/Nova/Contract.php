@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -48,10 +49,11 @@ class Contract extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('title'),
-            Date::make('start_date'),
-            Date::make('end_date'),
-            BelongsTo::make('Contract Type')
+            Text::make('Title')->required(),
+            Date::make('Start Date')->required(),
+            Date::make('End Date')->required(),
+            BelongsTo::make('Contract Type'),
+            File::make('Contrato Firmado', 'file_path')
         ];
     }
 

@@ -4,11 +4,10 @@ namespace App\Nova;
 
 use Ctessier\NovaAdvancedImageField\AdvancedImage;
 
-use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Email;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use YieldStudio\NovaGoogleAutocomplete\GoogleAutocomplete;
@@ -47,8 +46,6 @@ class Person extends Resource
     /**
      * Change the style of the index table.
      */
-    public static $tableStyle = 'tight';
-    public static $showColumnBorders = false;
     public static $clickAction = 'default'; // default, select, preview, ignore
     public static $perPageOptions = [50, 100, 150];
 
@@ -77,6 +74,7 @@ class Person extends Resource
                 ->rounded(),
             Email::make('Email')
                 ->showOnPreview(),
+            Password::make('Password')->onlyOnForms(),
             Date::make('Birthdate'),
             Text::make('hc_id')
                 ->showOnPreview()
@@ -92,7 +90,6 @@ class Person extends Resource
                 ->showOnPreview(),
             SelectPlus::make('Communities'),
             SelectPlus::make('Homes'),
-
 
         ];
     }

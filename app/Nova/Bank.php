@@ -2,8 +2,6 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -44,9 +42,8 @@ class Bank extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
-            Text::make('ABM Number'),
-            Text::make('Short Name'),
+            Text::make('ABM Number')->sortable()->textAlign('center'),
+            Text::make('Short Name')->sortable(),
             Text::make('Long Name')
         ];
     }

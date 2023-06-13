@@ -23,6 +23,7 @@ class PersonFactory extends Factory
             'photo_path' => fake()->image('storage/app/public',300,300,'avatars', false),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => fake()->dateTimeThisMonth(),
+            'password' => fake()->password(),
             'address' => fake()->address(),
             'phone' => fake()->phoneNumber(),
             'birthdate' => fake()->date('Y-m-d', '2000-01-01'),

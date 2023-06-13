@@ -3,7 +3,12 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Bill extends Resource
@@ -21,6 +26,7 @@ class Bill extends Resource
      * @var string
      */
     public static $title = 'id';
+    public static $group = 'Billing';
 
     /**
      * The columns that should be searched.
@@ -41,6 +47,11 @@ class Bill extends Resource
     {
         return [
             ID::make()->sortable(),
+            Date::make('Due Date')->required(),
+            Text::make('Description')->required(),
+            Currency::make('Amount')->required(),
+            BelongsTo::make('Contract'),
+            Boolean::make('Payment Status')
         ];
     }
 
